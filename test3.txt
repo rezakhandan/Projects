@@ -1,2 +1,6 @@
 hello test3
-new line in master
+<<<<<<< HEAD
+new line test3
+=======
+new line test3
+>>>>>>> exam
