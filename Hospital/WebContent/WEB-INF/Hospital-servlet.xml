@@ -1,0 +1,48 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+   <context:component-scan base-package="Controller" />
+    
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name="prefix" value="/WEB-INF/jsp/" />
+      <property name="suffix" value=".jsp" />
+   </bean>
+
+	<bean id="dataSource" 
+      class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+	  <property name="url" value="jdbc:mysql://localhost:3306/db1"/>
+      <property name="username" value="root"/>
+      <property name="password" value=""/>
+   </bean>
+
+   <!-- Definition for HospitalJDBCTemplate bean -->
+
+   <bean id="LoginJDBC" 
+      class="JDBC.LoginJDBC">
+      <property name="dataSource"  ref="dataSource" /> 
+   </bean>
+   <bean id="HospitalJDBC" 
+      class="JDBC.HospitalJDBC">
+      <property name="dataSource"  ref="dataSource" />    
+   </bean>
+   <bean id="PazireshJDBC" 
+      class="JDBC.PazireshJDBC">
+      <property name="dataSource"  ref="dataSource" />    
+   </bean>
+      <bean id="UserJDBC" 
+      class="JDBC.UserJDBC">
+      <property name="dataSource"  ref="dataSource" />    
+   </bean>
+ <mvc:resources mapping="/static/**" location="/WEB-INF/static/" />
+ <mvc:annotation-driven />
+</beans>

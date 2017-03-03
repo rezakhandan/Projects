@@ -1,0 +1,24 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+@font-face {
+	font-family: 'Yekan';
+	src: url('../fonts/BYekan.eot?#') format('eot'),
+		 url('../fonts/BYekan.ttf') format('truetype'),
+		 url('../fonts/BYekan.woff') format('woff');
+}
